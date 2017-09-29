@@ -162,6 +162,7 @@ cc_defaults {
         "src/xerbla.c",
     ],
 
+    cflags: ["-Werror"],
     export_include_dirs: ["include"],
 }
 
