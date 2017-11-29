@@ -168,7 +168,7 @@ cc_defaults {
 
 cc_library_shared {
     name: "libblas",
-    vendor_available: true,
+    vendor_available: false,
     vndk: {
         enabled: true,
         support_system_process: true,
