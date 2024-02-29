@@ -179,7 +179,10 @@ cc_defaults {
         "src/xerbla.c",
     ],
 
-    cflags: ["-Werror"],
+    cflags: [
+        "-Werror",
+        "-Wno-tautological-negation-compare",
+    ],
     export_include_dirs: ["include"],
 }
 
