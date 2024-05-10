@@ -179,7 +179,10 @@ cc_defaults {
         "src/xerbla.c",
     ],
 
-    cflags: ["-Werror"],
+    cflags: [
+        "-Werror",
+        "-Wno-tautological-negation-compare",
+    ],
     export_include_dirs: ["include"],
 }
 
@@ -188,11 +191,7 @@ cc_library_shared {
     vendor_available: true,
     // TODO(b/153609531): remove when no longer needed.
     native_bridge_supported: true,
-    vndk: {
-        enabled: true,
-        support_system_process: true,
-        private: true,
-    },
+    double_loadable: true,
     defaults: ["cblas-defaults"],
     static_libs: ["libF77blas"],
 }
