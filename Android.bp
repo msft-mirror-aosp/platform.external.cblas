@@ -31,6 +31,11 @@ license {
 
 cc_defaults {
     name: "cblas-defaults",
+
+    // Optimize for size. It is only used by Renderscript, which is deprecated and is rarely
+    // used.
+    optimize_for_size: true,
+
     srcs: [
         "src/cblas_caxpy.c",
         "src/cblas_ccopy.c",
