@@ -31,6 +31,11 @@ license {
 
 cc_defaults {
     name: "cblas-defaults",
+
+    // Optimize for size. It is only used by Renderscript, which is deprecated and is rarely
+    // used.
+    optimize_for_size: true,
+
     srcs: [
         "src/cblas_caxpy.c",
         "src/cblas_ccopy.c",
@@ -191,11 +196,7 @@ cc_library_shared {
     vendor_available: true,
     // TODO(b/153609531): remove when no longer needed.
     native_bridge_supported: true,
-    vndk: {
-        enabled: true,
-        support_system_process: true,
-        private: true,
-    },
+    double_loadable: true,
     defaults: ["cblas-defaults"],
     static_libs: ["libF77blas"],
 }
